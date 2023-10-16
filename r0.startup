@@ -1,0 +1,8 @@
+ip address add 172.1.1.1/30 dev eth0
+set dev eth0 up
+ip address add 172.1.2.1/30 dev eth1
+set dev eth1 up
+ip address add 172.1.3.1/30 dev eth2
+set dev eth2 up
+ip address add 172.1.4.1/30 dev eth3
+set dev eth3 up
