@@ -1,3 +1,4 @@
 ip address add 172.1.4.2/30 dev eth0
 set dev eth0 up
 ip route add default via 172.1.4.1
+$(shared/iptablesDrops)
