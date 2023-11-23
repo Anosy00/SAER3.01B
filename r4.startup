@@ -1,6 +1,6 @@
 ip address add 172.1.4.2/30 dev eth0
 set dev eth0 up
-ip address add 172.12.150.1/30 dev eth1
+ip address add 172.12.150.2/30 dev eth1
 set dev eth1 up
 
 ip route add default via 172.1.4.1
