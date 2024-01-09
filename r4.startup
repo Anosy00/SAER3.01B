@@ -5,3 +5,6 @@ set dev eth1 up
 
 ip route add default via 172.1.4.1
 $(shared/iptablesDrops.sh)
+echo "
+nameserver 8.8.8.8
+search www.google.com" > /etc/resolv.conf
