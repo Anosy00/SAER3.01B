@@ -21,3 +21,5 @@ iptables -P FORWARD DROP
 iptables -A FORWARD -p tcp --dport 1234 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 587 -j ACCEPT
 iptables -A FORWARD -p icmp -j ACCEPT
+iptables -A FORWARD -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A FORWARD -p udp --dport 53 -j ACCEPT
