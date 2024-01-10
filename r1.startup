@@ -7,3 +7,5 @@ $(shared/iptablesDrops.sh)
 echo "
 nameserver 8.8.8.8
 search www.google.com" > /etc/resolv.conf
+iptables -P OUTPUT DROP
+iptables -P INPUT DROP
