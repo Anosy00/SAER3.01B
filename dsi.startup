@@ -1,4 +1,3 @@
 ip address add 192.168.23.1/26 dev eth0
 set dev eth0 up
 ip route add default via 192.168.23.62
-iptables -A OUTPUT -p tcp --sport 587 -d 192.168.31.254  -j ACCEPT

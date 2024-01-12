@@ -4,11 +4,5 @@ ip route add default via 172.12.150.2
 echo "
 nameserver 8.8.8.8
 search www.google.com" > /etc/resolv.conf
-iptables -P OUTPUT DROP
-iptables -P INPUT DROP
-iptables -A INPUT -p tcp --sport 1234 -j ACCEPT
-iptables -A OUTPUT -p tcp --dport 1234 -j ACCEPT
-iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
-iptables -A INPUT -p udp --dport 53 -j ACCEPT
-iptables -A OUTPUT -p udp --sport 53 -j ACCEPT
-iptables -A OUTPUT -p icmp --icmp-type echo-request -j ACCEPT
+iptables -A INPUT -p tcp --sport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT

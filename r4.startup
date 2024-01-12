@@ -3,14 +3,12 @@ set dev eth0 up
 ip address add 172.12.150.2/30 dev eth1
 set dev eth1 up
 ip route add default via 172.1.4.1
-$(shared/iptablesDrops.sh)
 echo "
 nameserver 8.8.8.8
 search www.google.com" > /etc/resolv.conf
-iptables -P OUTPUT DROP
-iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -A FORWARD -p tcp --dport 1234 -j ACCEPT
 iptables -A FORWARD -p icmp -j ACCEPT
-iptables -A FORWARD -p icmp --icmp-type echo-request -j ACCEPT
-iptables -A FORWARD -p udp --dport 53 --sport 53 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 22 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 22 -j ACCEPT
+$(shared/iptablesDrops.sh)
