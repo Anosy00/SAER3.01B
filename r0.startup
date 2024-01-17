@@ -1,4 +1,4 @@
-ip address add 172.1.1.1/30 dev eth0
+*ip address add 172.1.1.1/30 dev eth0
 set dev eth0 up
 ip address add 172.1.2.1/30 dev eth1
 set dev eth1 up
@@ -25,3 +25,5 @@ iptables -A FORWARD -p tcp --dport 53 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 53 -j ACCEPT
 iptables -A FORWARD -p tcp -m multiport --sports 443,80 -j ACCEPT 
 iptables -A FORWARD -p tcp -m multiport --dports 443,80 -j ACCEPT 
+iptables -A FORWARD -p tcp --dport 22 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 22 -j ACCEPT
