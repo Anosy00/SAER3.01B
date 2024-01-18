@@ -3,9 +3,9 @@
 ## Description de la Saé
 
 ## Les tests mis en places
-Nous avons temporairement autoriser les filtrages en icmp pour verifier les connectivitées des composants.  
-Toutes les machines ont réussi à ping google en 8.8.8.8 ce qui nous indique que toutes nos routes sont correcte.  
-Apres avoir établis nos filtrages, nous avons testé nos filtrages en fonction des spécifications demandées.
+Nous avons temporairement autorisé les filtrages en icmp pour verifier les connectivitées des composants.  
+Toutes les machines ont réussi à ping google en 8.8.8.8 ce qui nous indique que toutes nos routes sont correctes.  
+Apres avoir établi nos filtrages, nous avons testé nos filtrages en fonction des spécifications demandées.
 
 ### Le serveur S
 
