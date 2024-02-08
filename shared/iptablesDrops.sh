@@ -1,3 +1,7 @@
+#!/bin/bash
+iptables -P FORWARD DROP
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
 iptables -A FORWARD -p udp --dport 53 -j ACCEPT
 iptables -A FORWARD -p udp --sport 53 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 53 -j ACCEPT

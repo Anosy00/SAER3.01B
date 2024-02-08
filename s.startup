@@ -1,7 +1,22 @@
 ip address add 172.12.150.1/30 dev eth0
 set dev eth0 up
 ip route add default via 172.12.150.2
+<<<<<<< HEAD
 echo "nameserver 8.8.8.8
 search www.google.com" > etc/resolv.conf
+=======
+echo "
+nameserver 8.8.8.8
+search www.google.com" > /etc/resolv.conf
+
+iptables -P FORWARD DROP
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+
+>>>>>>> 7ba01055ee1aacb0bd3010b74a4f5616a59cef40
 iptables -A INPUT -p tcp --sport 22 -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
+iptables -A INPUT -p tcp --dport 1234 -j ACCEPT
+iptables -A OUTPUT -p tcp --dport 1234 -j ACCEPT
+iptables -A INPUT -p icmp -j ACCEPT
+iptables -A OUTPUT -p icmp -j ACCEPT
