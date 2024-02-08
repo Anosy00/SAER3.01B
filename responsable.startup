@@ -1,3 +1,5 @@
 ip address add 192.168.16.1/20 dev eth0
 set dev eth0 up
 ip route add default via 192.168.31.254
+echo "nameserver 8.8.8.8
+search www.google.com" > /etc/resolv.conf
