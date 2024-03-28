@@ -15,3 +15,5 @@ iptables -A FORWARD -p tcp --dport 587 -d 192.168.23.1 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 587 -s 192.168.23.1 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 443 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 443 -j ACCEPT
+iptables -A FORWARD -p udp --dport 53 -j ACCEPT
+iptables -A FORWARD -p udp --sport 53 -j ACCEPT

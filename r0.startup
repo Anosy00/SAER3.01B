@@ -10,8 +10,8 @@ nameserver 8.8.8.8
 search www.google.com" > /etc/resolv.conf
 apt update -y && apt upgrade -y && apt install nmap -y
 iptables -P FORWARD DROP
-iptables -A FORWARD -p tcp --dport 1234 -j ACCEPT
-iptables -A FORWARD -p tcp --sport 1234 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 1234 -d 172.12.150.1 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 1234 -s 172.12.150.1 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 587 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 587 -j ACCEPT
 iptables -A FORWARD -p icmp --icmp-type echo-request -j ACCEPT
@@ -27,3 +27,5 @@ iptables -A FORWARD -p tcp --sport 443 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 443 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 80 -j ACCEPT
 iptables -A FORWARD -p tcp --sport 80 -j ACCEPT
+iptables -A FORWARD -p udp --dport 53 -j ACCEPT
+iptables -A FORWARD -p udp --sport 53 -j ACCEPT
