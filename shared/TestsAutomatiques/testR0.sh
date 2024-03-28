@@ -12,14 +12,20 @@ test_ping_port() {
 
 # Configuration des composants Kathara
 declare -A kathara_nodes=(
-    [Google]="8.8.8.8,443,80"
-    [OpenAI]="45.33.121.77,80,443,22"
-    # Ajoutez d'autres nœuds Kathara si nécessaire
+    [Google]="8.8.8.8,80,443"
+    [R1]="192.168.31.254,80,443,22"
+    [R2]="192.16.47.254,80,443,22"
+    [R3]="192.168.23.62,80,443,22"
+    [R4]="172.12.150.2,80,443,22"
 )
 
-# Boucle à travers les nœuds Kathara pour tester le ping sur les ports spécifiés
-for hostname in "${!kathara_nodes[@]}"; do
-    echo ''
+# Extraction des noms d'hôte dans un tableau
+hosts=("${!kathara_nodes[@]}")
+
+# Boucle à travers les noms d'hôte dans l'ordre inverse
+for ((i=${#hosts[@]}-1; i>=0; i--)); do
+    echo
+    hostname="${hosts[i]}"
     ip_ports="${kathara_nodes[$hostname]}"
     IFS=',' read -r -a ip_ports_array <<< "$ip_ports"
     ip="${ip_ports_array[0]}"
@@ -34,6 +40,6 @@ for hostname in "${!kathara_nodes[@]}"; do
     # Boucle à travers les ports à tester
     for port in "${ports_to_test[@]}"; do
         test_ping_port "$ip" "$port"
-        
     done
 done
+echo
