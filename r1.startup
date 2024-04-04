@@ -1,11 +1,11 @@
-ip address add 172.1.1.3/29 dev eth0
+ip address add 172.1.1.2/29 dev eth0
 set dev eth0 up
 ip address add 192.168.31.254/20 dev eth1
 set dev eth1 up
+ip route add default via 172.1.1.1
 echo "
 nameserver 8.8.8.8
 search www.google.com" > /etc/resolv.conf
-apt update -y && apt upgrade -y
 iptables -P FORWARD DROP
 iptables -A FORWARD -p tcp --sport 587 -s 192.168.23.1 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 587 -d 192.168.23.1 -j ACCEPT
@@ -15,4 +15,8 @@ iptables -A FORWARD -p tcp --sport 1234 -s 172.12.150.1 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 1234 -d 172.12.150.1 -j ACCEPT
 iptables -A FORWARD -p tcp -m multiport --sports 443,80 -j ACCEPT
 iptables -A FORWARD -p tcp -m multiport --dports 443,80 -j ACCEPT
+iptables -A FORWARD -p udp --dport 53 -j ACCEPT
+iptables -A FORWARD -p udp --sport 53 -j ACCEPT
+iptables -A FORWARD -p tcp --dport 53 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 53 -j ACCEPT
 iptables -A FORWARD -p icmp --icmp-type echo-request -s 192.168.16.0/20 -d 192.168.16.0/20 -j ACCEPT

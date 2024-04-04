@@ -4,4 +4,4 @@ ip route add default via 172.12.150.2
 echo "
 nameserver 8.8.8.8
 search www.google.com" > /etc/resolv.conf
-
+apt update -y && apt upgrade -y && apt install nmap -y
