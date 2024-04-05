@@ -7,8 +7,8 @@ echo "
 nameserver 8.8.8.8
 search www.google.com" > /etc/resolv.conf
 iptables -P FORWARD DROP
-iptables -A FORWARD -p tcp --sport 587 -s 192.168.23.1 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 587 -d 192.168.23.1 -j ACCEPT
+iptables -A FORWARD -p tcp --sport 587 -s 192.168.23.1 -j ACCEPT
 iptables -A FORWARD -p tcp --dport 22 -d 172.12.150.1  -j ACCEPT
 iptables -A FORWARD -p tcp --sport 22 -s 172.12.150.1  -j ACCEPT
 iptables -A FORWARD -p tcp --sport 1234 -s 172.12.150.1 -j ACCEPT
